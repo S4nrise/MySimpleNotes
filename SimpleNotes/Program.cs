@@ -24,7 +24,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseSimpleNotesEndpoints();
 
-await DbInitializer.InitializeAsync(app);
+//await DbInitializer.InitializeAsync(app);
 
 //Start the server
 app.Run();

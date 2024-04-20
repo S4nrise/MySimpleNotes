@@ -1,4 +1,6 @@
-﻿namespace SimpleNotes.Models.Note;
+﻿using SimpleNotes.Models.Tag;
+
+namespace SimpleNotes.Models.Note;
 
 public class Note
 {
@@ -10,7 +12,8 @@ public class Note
     public bool IsCompleted { get; set; }
     public Priority Priority { get; set; }
 
-    public string Tags { get; set; }
-    
+    //public List<Tag.Tag> Tags { get; } = [];
+    public List<NoteTag> NoteTags { get; } = [];
+
     public Guid UserId { get; set; }
 }

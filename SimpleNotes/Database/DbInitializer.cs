@@ -1,4 +1,6 @@
-﻿namespace SimpleNotes.Database;
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace SimpleNotes.Database;
 
 public static class DbInitializer
 {
@@ -9,9 +11,11 @@ public static class DbInitializer
             await using var scope = app.Services.CreateAsyncScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<SimpleNotesDbContext>();
             await dbContext.Database.EnsureCreatedAsync();
+            await dbContext.Database.MigrateAsync();
         }
         catch (Exception e)
         {
+            throw;
         }
     }
 }
